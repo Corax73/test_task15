@@ -2,7 +2,8 @@
 
 namespace app\controllers;
 
-use app\models\Image;
+use app\models\UploadForm;
+use app\repositories\ImageRepository;
 use Yii;
 use yii\web\UploadedFile;
 
@@ -17,10 +18,20 @@ class ImageController extends \yii\web\Controller
 
     public function actionImageLoad()
     {
-        $model = new Image();
+        $model = new UploadForm();
         if (Yii::$app->request->post()) {
-            $files = UploadedFile::getInstance($model, 'title');
-            dump($files);die;
+            $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
+            $rep = new ImageRepository();
+            $result = $rep->saveImages($model->upload());
+            if($result) {
+                $model = new UploadForm();
+                return $this->render('image-load', ['model' => $model]);
+            } else {
+                /**
+                 * stub
+                 */
+                return $this->render('index');
+            }
         }
         return $this->render('image-load', ['model' => $model]);
     }

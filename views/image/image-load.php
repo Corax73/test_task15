@@ -10,10 +10,12 @@ $this->title = 'Загрузка файлов изображений';
 ?>
 <div class="image-load">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
 
-    <?= $form->field($model, 'title')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>
-    <button>Загрузить</button>
-    <?php ActiveForm::end(); ?>
+    <?= $form->field($model, 'imageFiles[]')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>
+
+    <button>Submit</button>
+
+    <?php ActiveForm::end() ?>
 
 </div><!-- image-load -->
