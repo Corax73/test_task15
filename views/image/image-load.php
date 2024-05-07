@@ -19,3 +19,5 @@ $this->title = 'Загрузка файлов изображений';
     <?php ActiveForm::end() ?>
 
 </div><!-- image-load -->
+
+<?= Html::a('List of images', ['/'], ['class'=>'btn btn-primary']); ?>

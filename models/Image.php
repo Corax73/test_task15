@@ -2,8 +2,6 @@
 
 namespace app\models;
 
-use Yii;
-
 /**
  * This is the model class for table "images".
  *
@@ -28,7 +26,8 @@ class Image extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'original_title'], 'required'],
+            [['title', 'original_title'], 'required',],
+            ['title', 'filter', 'filter' => 'strtolower'],
             [['created_at'], 'safe'],
             [['title', 'original_title'], 'string', 'max' => 255],
         ];
