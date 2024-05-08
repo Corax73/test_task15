@@ -1,0 +1,56 @@
+2024-05-08 22:46:53 [127.0.0.1][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "". in E:\OpenServer\domains\test_task15\site\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 E:\OpenServer\domains\test_task15\site\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('', Array)
+#1 E:\OpenServer\domains\test_task15\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 E:\OpenServer\domains\test_task15\site\web\index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in E:\OpenServer\domains\test_task15\site\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 E:\OpenServer\domains\test_task15\site\vendor\yiisoft\yii2\base\Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 E:\OpenServer\domains\test_task15\site\web\index.php(12): yii\base\Application->run()
+#2 {main}
+2024-05-08 22:46:53 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'l4n0flmlrjfsq6idu4hpr55po2'
+    '_csrf' => '9545d2c1f8dd1b4e6e1fceeb49aa72d88ae05ce872b1c80a7e3eb13e4acaa4d0a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"iy-vk7XYMxmDobvkB1ealqkHwdf4sSV-\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'E:\\OpenServer\\domains\\test_task15\\site\\web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'REMOTE_PORT' => '58970'
+    'SERVER_SOFTWARE' => 'PHP 8.2.5 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'E:\\OpenServer\\domains\\test_task15\\site\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_REFERER' => 'http://localhost:8080/image/image-load'
+    'HTTP_COOKIE' => 'PHPSESSID=l4n0flmlrjfsq6idu4hpr55po2; _csrf=9545d2c1f8dd1b4e6e1fceeb49aa72d88ae05ce872b1c80a7e3eb13e4acaa4d0a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22iy-vk7XYMxmDobvkB1ealqkHwdf4sSV-%22%3B%7D'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'REQUEST_TIME_FLOAT' => 1715197613.3722
+    'REQUEST_TIME' => 1715197613
+]

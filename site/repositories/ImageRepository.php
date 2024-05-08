@@ -29,7 +29,7 @@ class ImageRepository
                 }
                 $file->saveAs('../uploads/' . $fileName . '.' . $file->extension);
                 $image = new Image();
-                $image->title = $fileName;
+                $image->title = $fileName . '.' . $file->extension;
                 $image->original_title = $file->baseName;
                 if ($image->validate()) {
                     $resp = $image->save();

@@ -3,11 +3,9 @@
 /** @var yii\web\View $this */
 
 use app\models\Image;
-use yii\bootstrap5\Button;
 use yii\bootstrap5\Html;
 use yii\grid\GridView;
 use yii\data\ActiveDataProvider;
-use yii\helpers\Url;
 
 $dataProvider = new ActiveDataProvider([
     'query' => Image::find()->select([
@@ -19,13 +17,22 @@ $dataProvider = new ActiveDataProvider([
         'pageSize' => 5,
     ],
 ]);
-
 echo GridView::widget([
     'dataProvider' => $dataProvider,
     'columns' => [
         'title',
         'original_title',
-        'created_at'
+        'created_at',
+        [
+            'label' => 'Preview',
+            'format' => 'raw',
+            'value' => function ($data) {
+                return Html::img('/uploads/' . $data->title, [
+                    'alt' => $data->title,
+                    'style' => 'width:50px;'
+                ]);
+            },
+        ]
     ],
     'pager' => ['class' => \yii\bootstrap5\LinkPager::class],
 ]);
