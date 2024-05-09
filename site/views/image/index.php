@@ -29,7 +29,7 @@ echo GridView::widget([
             'value' => function ($data) {
                 return Html::img('/uploads/' . $data->title, [
                     'alt' => $data->title,
-                    'style' => 'width:50px;'
+                    'style' => 'width:5%;'
                 ]);
             },
         ]
@@ -38,3 +38,5 @@ echo GridView::widget([
 ]);
 
 echo Html::a('Image upload form', ['/image/image-load'], ['class' => 'btn btn-primary']);
+
+$this->registerJsFile('/js/getOriginalImage.js', ['position'=>\yii\web\View::POS_END]);
