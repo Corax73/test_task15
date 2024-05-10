@@ -45,4 +45,13 @@ class Image extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
         ];
     }
+
+    public function afterFind()
+    {
+        if(!file_exists('uploads/' . $this->title)) {
+            $this->title = 'file missing';
+            $this->original_title = 'file missing';
+            $this->created_at = 'file missing';
+        }
+    }
 }

@@ -37,7 +37,12 @@ echo GridView::widget([
             'label' => 'Download zip',
             'format' => 'raw',
             'value' => function ($data) {
-                return Html::a('Скачать', ['image/download', 'title' => $data->title]);
+                if($data->title == 'file missing') {
+                    $resp = 'file missing';
+                } else {
+                    $resp = Html::a('Скачать', ['image/download', 'title' => $data->title]);
+                }
+                return $resp;
             },
         ]
     ],

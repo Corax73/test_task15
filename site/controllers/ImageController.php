@@ -27,9 +27,6 @@ class ImageController extends \yii\web\Controller
                 $model = new UploadForm();
                 return $this->render('image-load', ['model' => $model]);
             } else {
-                /**
-                 * stub
-                 */
                 return $this->render('index');
             }
         }
