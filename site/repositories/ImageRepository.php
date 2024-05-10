@@ -3,6 +3,7 @@
 namespace app\repositories;
 
 use app\models\Image;
+use ZipArchive;
 
 class ImageRepository
 {
@@ -34,6 +35,32 @@ class ImageRepository
                 if ($image->validate()) {
                     $resp = $image->save();
                 }
+            }
+        }
+        return $resp;
+    }
+
+    /**
+     * Checks the existence of an image file and an archive file using the passed string, and if there is no archive, creates one.
+     * Returns archive name or empty string on success.
+     * @param string $imageFileTitle
+     * @return string
+     */
+    public function getZipFile(string $imageFileTitle): string
+    {
+        $resp = '';
+        if (file_exists('uploads/' . $imageFileTitle)) {
+            $zipFileName = 'uploads/compressed/' . explode('.', $imageFileTitle)[0] . '.zip';
+            if (!file_exists($zipFileName)) {
+                $zipFile = new ZipArchive();
+                $zipFile->open($zipFileName, ZipArchive::CREATE);
+                $zipFile->addFile('uploads/' . $imageFileTitle);
+                $res = $zipFile->close();
+                if ($res) {
+                    $resp = $zipFileName;
+                }
+            } else {
+                $resp = $zipFileName;
             }
         }
         return $resp;

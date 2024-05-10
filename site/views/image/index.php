@@ -32,6 +32,13 @@ echo GridView::widget([
                     'style' => 'width:5%;'
                 ]);
             },
+        ],
+        [
+            'label' => 'Download zip',
+            'format' => 'raw',
+            'value' => function ($data) {
+                return Html::a('Скачать', ['image/download', 'title' => $data->title]);
+            },
         ]
     ],
     'pager' => ['class' => \yii\bootstrap5\LinkPager::class],

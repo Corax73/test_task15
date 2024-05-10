@@ -16,14 +16,14 @@ class ImageController extends \yii\web\Controller
         return $this->render('index');
     }
 
-    public function actionImageLoad()
+    public function actionImageLoad(): string
     {
         $model = new UploadForm();
         if (Yii::$app->request->post()) {
             $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
             $rep = new ImageRepository();
             $result = $rep->saveImages($model->upload());
-            if($result) {
+            if ($result) {
                 $model = new UploadForm();
                 return $this->render('image-load', ['model' => $model]);
             } else {
@@ -34,5 +34,16 @@ class ImageController extends \yii\web\Controller
             }
         }
         return $this->render('image-load', ['model' => $model]);
+    }
+
+    public function actionDownload(string $title): \yii\web\Response | string
+    {
+        $result = false;
+        $rep = new ImageRepository();
+        $zipFileName = $rep->getZipFile($title);
+        if ($zipFileName) {
+            $result = true;
+        }
+        return $result ? Yii::$app->response->sendFile($zipFileName) : $this->render('index');
     }
 }
