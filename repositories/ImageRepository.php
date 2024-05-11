@@ -3,6 +3,7 @@
 namespace app\repositories;
 
 use app\models\Image;
+use yii\helpers\Inflector;
 use ZipArchive;
 
 class ImageRepository
@@ -24,7 +25,7 @@ class ImageRepository
                 $takenNames = collect($takenNames)->pluck('original_title')->toArray();
             }
             foreach ($images as $file) {
-                $fileName = $file->baseName;
+                $fileName = strtolower(Inflector::transliterate($file->baseName));
                 if (in_array($file->baseName, $takenNames)) {
                     $fileName = rand(0, 10000) . time() . rand(0, 10000);
                 }
