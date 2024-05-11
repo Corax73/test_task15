@@ -16,7 +16,7 @@ class m240505_153909_create_images_table extends Migration
             'id' => $this->primaryKey(),
             'title' => $this->string()->notNull()->unique(),
             'original_title' => $this->string()->notNull(),
-            'created_at' => $this->dateTime()->defaultValue(date('Y-m-d H:i:s'))
+            'created_at' => $this->dateTime()->defaultValue(new \yii\db\Expression('NOW()'))
         ]);
 
         $this->createIndex(
